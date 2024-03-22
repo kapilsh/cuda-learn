@@ -11,6 +11,7 @@ file(GLOB cpu_source_files "${CMAKE_SOURCE_DIR}/src/*.cc")
 file(GLOB gpu_source_files "${CMAKE_SOURCE_DIR}/src/*.cu")
 file(GLOB header_files "${CMAKE_SOURCE_DIR}/src/*.hpp")
 
+# wget https://download.pytorch.org/libtorch/cu121/libtorch-cxx11-abi-shared-with-deps-2.2.1%2Bcu121.zip
 list(APPEND CMAKE_PREFIX_PATH /home/ksharma/dev/git/cuda-learn/third-party/libtorch)
 list(APPEND CMAKE_PREFIX_PATH /home/ksharma/anaconda3/envs/cuda-learn)
 
