@@ -1,5 +1,6 @@
 #include <iostream>
 #include "gpu.hpp"
+#include <torch/torch.h>
 
 int main()
 {
@@ -8,5 +9,8 @@ int main()
     std::cout << "CUDA: On" << std::endl;
     printCudaVersion();
 
+    std::vector<int64_t> sizes = {2, 3};
+    auto tensor = torch::randn(sizes);
+    std::cout << "Tensor:\n" << tensor << '\n';
     return 0;
 }
