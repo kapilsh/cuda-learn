@@ -17,7 +17,7 @@ int main()
     auto y = torch::randn(sizes, torch::kCUDA);
     std::cout << "Tensor y:\n" << y << '\n';
 
-    saxpy_wrapper(6, x, y, 2.0);
+    saxpy_wrapper(x, y, 2.0);
 
     std::cout << "Out:\n" << y << '\n';
 
