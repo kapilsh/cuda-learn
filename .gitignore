@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+/cmake-build-debug-event-trace/
+/cmake-build-debug/
+/third-party/
+/.idea/
