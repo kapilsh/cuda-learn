@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cuda_runtime.h>
+#include "utils.cuh"
 
 void printCudaVersion()
 {

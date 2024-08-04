@@ -1,6 +1,6 @@
 #include <iostream>
-#include "saxpy.h"
-#include "utils.h"
+#include "saxpy.cuh"
+#include "utils.cuh"
 #include <torch/torch.h>
 
 int main()
