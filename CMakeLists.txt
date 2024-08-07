@@ -24,11 +24,19 @@ check_language(CUDA)
 enable_language(CUDA)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
-add_executable(saxpy-main ${CMAKE_SOURCE_DIR}/src/saxpy_main.cc ${gpu_source_files})
-target_link_libraries(saxpy-main "${TORCH_LIBRARIES}")
+add_executable(saxpy_main ${CMAKE_SOURCE_DIR}/src/saxpy_main.cc ${gpu_source_files})
+target_link_libraries(saxpy_main "${TORCH_LIBRARIES}")
 
+# benchmarks
+add_executable(benchmark_matmul_naive ${CMAKE_SOURCE_DIR}/src/benchmarks/benchmark_matmul_naive.cpp ${gpu_source_files})
+target_link_libraries(benchmark_matmul_naive "${TORCH_LIBRARIES}")
+
+# tests
 add_executable(test_matmul ${CMAKE_SOURCE_DIR}/src/tests/test_matmul.cpp ${test_import_files} ${gpu_source_files})
 target_link_libraries(test_matmul "${TORCH_LIBRARIES}")
+
+add_executable(test_vector_add ${CMAKE_SOURCE_DIR}/src/tests/test_vector_add.cpp ${test_import_files} ${gpu_source_files})
+target_link_libraries(test_vector_add "${TORCH_LIBRARIES}")
 
 enable_testing()
 

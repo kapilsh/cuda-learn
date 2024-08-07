@@ -32,9 +32,7 @@ torch::Tensor matmul_naive(const torch::Tensor& matrix1, const torch::Tensor& ma
 
     auto output_matrix = torch::empty({M, K}, matrix1.options());
 
-    std::cout << "M: " << M << " N: " << N << " K: " << K << '\n';
     matmul_naive_kernel<<<gridDim, blockDim>>>(matrix1.data_ptr<float>(), matrix2.data_ptr<float>(),
                                                output_matrix.data_ptr<float>(), M, N, K);
-    cudaDeviceSynchronize();
     return output_matrix;
 }
