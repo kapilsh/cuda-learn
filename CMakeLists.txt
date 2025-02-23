@@ -3,10 +3,6 @@ message(STATUS "CMake version: ${CMAKE_VERSION}")
 
 project(cuda_learn_binary)
 
-if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
-    set(CMAKE_CUDA_ARCHITECTURES 89)
-endif()
-
 file(GLOB gpu_source_files "${CMAKE_SOURCE_DIR}/src/*.cu")
 file(GLOB header_files "${CMAKE_SOURCE_DIR}/src/*.h")
 file(GLOB test_import_files "${CMAKE_SOURCE_DIR}/src/tests/imports/*")
