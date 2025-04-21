@@ -37,11 +37,15 @@ target_link_libraries(test_vector_add "${TORCH_LIBRARIES}")
 add_executable(test_image_blur ${CMAKE_SOURCE_DIR}/src/tests/test_image_blur.cpp ${test_import_files} ${gpu_source_files})
 target_link_libraries(test_image_blur "${TORCH_LIBRARIES}")
 
+add_executable(test_cuda_capabilities ${CMAKE_SOURCE_DIR}/src/tests/test_cuda_capabilities.cpp ${test_import_files} ${gpu_source_files})
+target_link_libraries(test_cuda_capabilities "${TORCH_LIBRARIES}")
+
 enable_testing()
 
 add_test(NAME test_matmul COMMAND test_matmul)
 add_test(NAME test_vector_add COMMAND test_vector_add)
 add_test(NAME test_image_blur COMMAND test_image_blur)
+add_test(NAME test_cuda_capabilities COMMAND test_cuda_capabilities)
 
 # NOTES
 # needed to pass -DCMAKE_CUDA_ARCHITECTURES=89 -DCMAKE_CUDA_FLAGS=-std=c++17 -DCMAKE_CUDA_COMPILER=/home/ksharma/local/cuda/bin/nvcc
